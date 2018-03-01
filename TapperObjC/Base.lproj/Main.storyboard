@@ -100,6 +100,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="coinBtn" destination="17P-oW-6aK" id="iH2-JF-JyW"/>
                         <outlet property="playBtn" destination="Apb-jp-WvU" id="b2Y-7z-azt"/>
                         <outlet property="tapperImgView" destination="jeo-Jb-FEr" id="Mcw-PI-3OW"/>
                         <outlet property="tapsL" destination="hrE-Fe-zMA" id="gQ6-Uh-AUC"/>

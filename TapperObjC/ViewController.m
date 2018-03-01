@@ -7,14 +7,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tapperImgView;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
+@property (weak, nonatomic) IBOutlet UIButton *coinBtn;
 
 @end
 
 @implementation ViewController
 
-
 - (void)updateTapsLbl {
-    _tapsL.text = @"currentTaps Taps";
+    NSString *tapsStr = [NSString stringWithFormat:@"%ld", (long)currentTaps];
+    NSString *tapStrCombined = [@"Taps: " stringByAppendingString:tapsStr];
+    [_tapsL setText:tapStrCombined];
 }
 
 - (BOOL)isGameOver {
@@ -25,7 +27,12 @@
     maxTaps = 0;
     _tapsL.text = @"";
     
+    [_tapperImgView setHidden:NO];
+    [_playBtn setHidden:NO];
+    [_textFieldOutlet setHidden:NO];
     
+    [_coinBtn setHidden:YES];
+    [_tapsL setHidden:YES];
 }
 
 - (IBAction)coinPress:(UIButton *)sender {
@@ -44,10 +51,14 @@
         [_playBtn setHidden:YES];
         [_textFieldOutlet setHidden:YES];
         
-        [_tapperImgView setHidden:NO];
+        [_coinBtn setHidden:NO];
         [_tapsL setHidden:NO];
         
-        maxTaps = [_textFieldOutlet.text  integerValue];
+        maxTaps =  [_textFieldOutlet.text intValue];
+        currentTaps = 0;
+        
+        [self updateTapsLbl];
+        
     }
 }
 

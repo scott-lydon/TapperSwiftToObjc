@@ -10,8 +10,8 @@
 
 @interface ViewController : UIViewController
 {
-    NSInteger *maxTaps;
-    NSInteger *currentTaps;
+    NSInteger maxTaps;
+    NSInteger currentTaps;
 }
 @end
 
